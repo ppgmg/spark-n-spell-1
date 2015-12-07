@@ -17,7 +17,14 @@ Check out our website at http://www.spark-n-spell.com
 - at the prompt, run:  `python symspell_python.py`
 - type in the word to be corrected at the interactive prompt
 
-(b) Run our word-level Spark document checker.
+(b) Run our Spark program to correct *individual* words.
+
+- download *word_correct_spark.py* to your local directory (you should have Spark 1.5.0 installed, and you must be able to call spark-submit from that directory)
+- if not already done, download the dictionary file *big.txt* from one of sources listed above
+- at the prompt, run:  `spark-submit word_correct_spark.py -w "<word to correct>"` 
+    - e.g. `spark-submit word_correct_spark.py -w "cvhicken"`
+    
+(c) Run our word-level Spark document checker.
 
 Note this will be fairly slow as the current version internally generates all possible suggestions for each word in the test document. For a faster document checker, please run one of the context-level spellcheckers below.
 
@@ -52,7 +59,7 @@ This repository also includes the following, for reference (see IPython Notebook
     - *serial_document.py* (word-level, document checker, serial)
     - *spark_1.py* (word-level, word checker, slow SPARK version)
     - *spark_2.py* (word-level, word checker, faster SPARK version)
-    - *spark_3.py* (word-level, word checker, also fast SPARK version)
+    - *spark_3.py* (word-level, word checker, also fast SPARK version, same as *word_correct_spark.py*)
     - *spark_4.py* (word-level, document checker, SPARK, same as *word_level_doc_correct.py*)
     - .... other versions of context-level ...
 
