@@ -489,14 +489,25 @@ if __name__ == "__main__":
     check_valid = os.path.isfile(check_file)
 
     if not dict_valid and not check_valid:
-        print 'Invalid dictionary and document-to-check files. Could not run.'
-        sys.exit()
+        dictionary_file = "testdata/big.txt"
+        check_file = "testdata/test.txt"
+        dict_valid = os.path.isfile(dictionary_file)
+        check_valid = os.path.isfile(check_file)
+        if not dict_valid and not check_valid:
+            print 'Invalid dictionary and document-to-check files. Could not run.'
+            sys.exit()
     elif not dict_valid:
-        print 'Invalid dictionary file. Could not run.'
-        sys.exit()
+        dictionary_file = "testdata/big.txt"
+        dict_valid = os.path.isfile(dictionary_file)
+        if not dict_valid:
+            print 'Invalid dictionary file. Could not run.'
+            sys.exit()
     elif not check_valid:
-        print 'Invalid document-to-check file. Could not run.'
-        sys.exit()
+        check_file = "testdata/test.txt"
+        check_valid = os.path.isfile(check_file)
+        if not check_valid:
+            print 'Invalid document-to-check file. Could not run.'
+            sys.exit()
 
     ############
     #

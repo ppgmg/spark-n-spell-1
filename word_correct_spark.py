@@ -402,7 +402,7 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,'d:w:',['dfile=','word='])
     except getopt.GetoptError:
-        print 'spark_3.py -d <dfile> -w <word>'
+        print 'word_correct_spark.py -d <dfile> -w <word>'
 
     # parse command line parameters    
     for opt, arg in opts:
@@ -435,8 +435,10 @@ if __name__ == "__main__":
     dictionary_file, word_in = main(sys.argv[1:])
 
     if not os.path.isfile(dictionary_file):
-        print 'Invalid dictionary file. Could not run.'
-        sys.exit()
+        dictionary_file = "testdata/big.txt"
+        if not os.path.isfile(dictionary_file):
+            print 'Invalid dictionary file. Could not run.'
+            sys.exit()
 
     if word_in == '':
         print "No word was provided for checking. Please use -w 'word' tag."
