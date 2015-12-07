@@ -1,5 +1,24 @@
 # contextSPARKfull.py - SPARK implementation, full parallelization
 
+######################
+#
+# To run, execute spark-submit contextSPARKfull.py at the prompt.
+#
+# The default files are:
+# - dictionary: testdata/big.txt
+# - document to check: yelp100reviews.txt
+#
+# These files can be over-ridden by adding -d 'dictionary.txt'
+# and -c 'checkfile.txt' when executing the code.
+#
+# Suggested corrections are logged to spell-log.txt in the
+# working directory.
+#
+# WARNING: This code was developed on a Python 2.7 and spark-1.5.0
+# build and may not run as expected on other configurations.
+#
+######################
+
 import re
 import math
 from scipy.stats import poisson

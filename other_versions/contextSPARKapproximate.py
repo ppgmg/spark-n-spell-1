@@ -8,6 +8,24 @@
 #
 ######################
 
+######################
+#
+# To run, execute spark-submit contextSPARKapproximate.py at the prompt.
+#
+# The default files are:
+# - dictionary: testdata/big.txt
+# - document to check: test.txt
+#
+# These files can be over-ridden by adding -d 'dictionary.txt'
+# and -c 'checkfile.txt' when executing the code.
+#
+# Suggested corrections are logged to spell-log.txt in the
+# working directory.
+#
+# WARNING: This code was developed on a Python 2.7 and spark-1.5.0
+# build and may not run as expected on other configurations.
+#
+######################
 
 import re
 import math
@@ -924,7 +942,7 @@ def main(argv):
 
     # default values - use if not overridden
     dictionary_file = 'testdata/big.txt'
-    check_file = 'testdata/yelp100reviews.txt'
+    check_file = 'testdata/test.txt'
 
     # read in command line parameters (if any)
     try:
