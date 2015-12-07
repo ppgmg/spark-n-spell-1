@@ -1,5 +1,7 @@
 # spark-n-spell README
 
+Check out our website at http://www.spark-n-spell.com
+
 ## EXECUTABLES
 
 ### Word-Level Correction
