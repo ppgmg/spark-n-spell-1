@@ -271,6 +271,7 @@ def get_suggestions(s, masterdict, longest_word_length=float('inf'), silent=Fals
         print "looking up suggestions based on input word..."
     
     got_suggestions = False  # initialize flag
+    init_sugg = []
     
     # check if input word is in dictionary, and is a word from the corpus (edit distance = 0)
     # if so, add input word itself and suggestions to suggestRDD
