@@ -30,9 +30,10 @@ Note this will be fairly slow as the current version internally generates all po
 
 - download *word_level_doc_correct.py* to your local directory (you should have Spark 1.5.0 installed, and you must be able to call spark-submit from that directory)
 - if not already done, download the dictionary file *big.txt* from one of sources listed above
-- download a document file to be tested (e.g. *test.txt*) into the working directory (some examples are in https://github.com/dominedo/spark-n-spell/tree/master/testdata)
+- download a document file to be tested into the working directory (some example test files of varying sizes can be found at https://github.com/dominedo/spark-n-spell/tree/master/testdata)
     - you will need to specify the name of this file when executing the python script as noted below using -c (otherwise, by default the script will look for a test document named *test.txt* in the working directory)
 - at the prompt, run:  `spark-submit word_level_doc_correct.py -c "<.txt file to check>"`
+    - e.g. `spark-submit word_level_doc_correct.py -c "test.txt"`
     - optionally, you may add a *-d file.txt* argument to specify a different dictionary file
     - corrections are logged to *log.txt* in the local directory
 
