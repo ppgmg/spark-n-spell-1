@@ -1,4 +1,4 @@
-# contextSPARK1.py - SPARK implementation, naive parallelization
+# contextSPARKnaive.py - SPARK implementation, naive parallelization
 
 import re
 import math

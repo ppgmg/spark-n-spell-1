@@ -1,4 +1,4 @@
-# contextSPARK3.py - SPARK implementation, full parallelization
+# contextSPARKfull.py - SPARK implementation, full parallelization
 
 import re
 import math
@@ -81,7 +81,7 @@ sc.setLogLevel('ERROR')
 # lengths but are all being processed in parallel, we check at
 # each iteration for any sentences that are "done" and store
 # their results for later use. Once the maximum sentence length is
-# reach, the results for all of the sentences are processed to
+# reached, the results for all of the sentences are processed to
 # extract and display/print suggested corrections.
 #
 # This approach takes advantage of parallelization by splitting

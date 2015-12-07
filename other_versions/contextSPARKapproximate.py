@@ -104,8 +104,8 @@ sc.setLogLevel('ERROR')
 # First, as expected, this approach yields similar corrections to the
 # Viterbi algorithm in many cases, but not always. Despite not being
 # a compeletely faithful representation of the original algorithm,
-# this implementation was considered a way to experiement with a 
-# different way of parallelixing the problem.
+# this implementation was considered a way to experiment with a 
+# different way of parallelizing the problem.
 #
 # The second problem is more severe. Under this implementation, the
 # size of the problem grows exponentially with the size of the text
