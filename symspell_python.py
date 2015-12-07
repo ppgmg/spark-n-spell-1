@@ -145,9 +145,9 @@ def create_dictionary(fname):
 
     total_word_count = 0
     unique_word_count = 0
-    print "Creating dictionary..." 
     
-    with open(fname) as file:    
+    with open(fname) as file:
+        print "Creating dictionary..."     
         for line in file:
             # separate by words by non-alphabetical characters      
             words = re.findall('[a-z]+', line.lower())  
@@ -396,7 +396,10 @@ if __name__ == "__main__":
     print "Please wait..."
     time.sleep(2)
     start_time = time.time()
-    create_dictionary("big.txt")
+    try:
+        create_dictionary("big.txt")
+    except:
+        create_dictionary("testdata/big.txt")
     run_time = time.time() - start_time
     print '-----'
     print '%.2f seconds to run' % run_time
