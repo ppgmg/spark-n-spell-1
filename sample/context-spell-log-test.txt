@@ -1,0 +1,4 @@
+Sentence 6: her tee set --> her the set
+Sentence 3: this is ax test --> this is as test
+Sentence 4: this is za test --> this is a test
+Sentence 5: thee is a test --> then is a test
