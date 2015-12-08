@@ -63,9 +63,9 @@ For our project, we implemented this serial Symmetric Delete algorithm in Python
 </div>
 
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>SERIAL PYTHON SYMSPELL IMPLEMENTATION</h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serial Python SYMSPELL Implementation</h3>
 <ul>
-<li><a href='https://github.com/dominedo/spark-n-spell/blob/master/symspell_python.py'>sympell_python.py</a></li>
+<li><a href='https://github.com/dominedo/spark-n-spell/blob/master/symspell_python.py'>symspell_python.py</a></li>
 </ul>
 <p>
 This program is a Python version of a spellchecker based on SymSpell, 
@@ -87,7 +87,7 @@ The Symmetric Delete spelling correction algorithm reduces the complexity
 </blockquote>
 <p>
 For further information on SymSpell, please consult the original
-<a href='blog.faroo.com/2012/06/07/improved-edit-distance-based-spelling-correction/'>documentation</a>.
+<a href='http://blog.faroo.com/2012/06/07/improved-edit-distance-based-spelling-correction/' target='_blank'>documentation</a>.
 </p>
 <p>
 The current version of this program will output all possible suggestions for
@@ -98,7 +98,7 @@ the structure and spirit of the original SymSpell algorithm and have not
 introduced any major optimizations or improvements.
 </p>
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>APACHE SPARK IMPLEMENTATIONS</h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apache SPARK Implementations</h3>
 <ul>
 <li><a href='https://github.com/dominedo/spark-n-spell/blob/master/word_correct_spark.py'>word_correct_spark.py (for words)</a></li>
 <li><a href='https://github.com/dominedo/spark-n-spell/blob/master/word_level_doc_correct.py'>word_level_doc_correct.py (for documents)</a></li>
@@ -109,7 +109,9 @@ We experimented with parallelizing various aspects of the algorithm, including t
 <p>
 Important note:  The current version will generate internally all possible correction for each word in the test document before choosing the best one. This allows us to compare the performance of earlier versions of the code, and feeds into the context-level document checking algorithm. This means that this code will run slowly for any moderately-sized test file. For faster Spark versions that correct documents, please consider running the context-based versions.
 </p>
-
+  <p>
+    Please refer to the <a href='https://github.com/dominedo/spark-n-spell/blob/master/word_level_documentation.ipynb'>iPython notebook</a> for more details on our coding and testing process.
+  </p>
         </section>
 
         <aside id="sidebar">

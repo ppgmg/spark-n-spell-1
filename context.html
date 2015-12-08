@@ -47,14 +47,51 @@
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context-Level Checking</h3>
 
 <p>
-bla bla bla
+We used the Viterbi algorithm to add context-level checking for additional accuracy. For example, the sentence "this is ax test" would pass the word-level correction because "ax"; we needed an algorithm capable of determing that the word "ax" should be replaced by "a" based on context.
+</p>
+<p>
+The Viterbi algorithm uses the probabilistic framework of hidden Markov models to find the most likely sequence of hidden states, based on the sequence of observed states. In the context of a spell-checker, the observed states are the words we see, and the hidden states are the words that were actually intended.
 </p>
 
 <div style="text-align: center;">
 <iframe width="420" height="315" src="https://www.youtube.com/embed/mDZbGV1Dxtw" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serial Python Implementation</h3>
+<ul>
+<li><a href='https://github.com/dominedo/spark-n-spell/blob/master/contextSerial.py'>contextSerial.py</a></li>
+</ul>
 
+<p>
+  This program is a Python implementation of the Viterbi algorithm. The algorithm reads in a document and breaks it up into its component sentences. The process that generates the sentences is modeled as a hidden Markov model (HMM), where each word represents a variable. The HMM can be parameterized by prior probabilities (i.e. the probability of a word starting a sentence), transition probabilities (i.e. the probability of one word following another), and emission probabilities (i.e. the probability of seeing a word, given the word that was intended). The first two are generated in the pre-processing stage, while the last is generated on the fly by parameterizing a Poisson distribution with the edit distance between words and possible corrections. The approach is best explained by an example, which is shown in the video above.
+</p>
+<p>
+  This algorithm builds on the word-level correction by utilizing the same logic to generate a list of suggested corrections per word. These suggestions represent the state space and are limited to (a) 'real' words (i.e. appear at least once in the pre-processed dictionary), (b) words that appeared at least 100 times in the corpus that was used to generate the dictionary, and (c) the top 10 most likely suggestions, based on frequency and edit distance. The last two conditions are imposed to ensure that the state space remains manageable and that the algorithm can scale effectively.
+</p>
+
+<p>
+  The Python implementation was able to check approximately 40 word per second across varying document sizes. As with the word-level correction, the serial version provided a baseline for subsequent SPARK implementations.
+</p>
+
+</p>
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apache SPARK Implementations</h3>
+<ul>
+<li><a href='https://github.com/dominedo/spark-n-spell/blob/master/contextSPARKnaive.py'>contextSPARKnaive.py (naive parallelization)</a></li>
+<li><a href='https://github.com/dominedo/spark-n-spell/blob/master/contextSPARKfull.py'>contextSPARKfull.py (full parallelization)</a></li>
+</ul>
+
+<p>
+  We experimented with various approaches to parallelizing the document-checker in Apache SPARK. The best performance was obtained from the "naive" parallelization, where each RDD element corresponds to a sentence from the document and the serial Python implementation of the Viterbi algorithm is called using a map operation.
+  </p> 
+  <p>
+    We also implemented a "full" parallelization of the document-checker. Instead of relying on a serial Python helper function, this version uses RDD operations to carry out all the steps of the Viterbi algorithm. To achieve this, the document to be checked it broken up into its components words (instead of sentences) and the words in each word position are processed in parallel across all sentences. Unfortunately this implementation did not achieve the same performance improvements, most likely due to the higher memory requirements associated with the considerably larger number of RDD elements.
+  </p>
+
+  <p>
+    Please refer to the <a href='https://github.com/dominedo/spark-n-spell/blob/master/context_level_documentation.ipynb'>iPython notebook</a> for more details on our coding and testing process.
+  </p>
         </section>
 
         <aside id="sidebar">
