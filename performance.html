@@ -47,7 +47,7 @@
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context-Level Checking: Naive Parallelization</h3>
 
 <p>
- Using this approach, we were able to check up to 78 words per second locally, and over 1,100 words per second on AWS (using a cluster of 16 executors with 4 cores each).
+ Using this approach, we were able to check up to 78 words per second locally, and over 1,100 words per second on Amazon AWS on the largest cluster we tested.
 </p>
 
 <div style="text-align: center;">
@@ -58,7 +58,7 @@
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context-Level Checking: Full Parallelization</h3>
 
 <p>
-   We found that this approach did not scale as well, and that we were only able to achieve 47 words per second locally and 289 words per second on AWS (using a cluster of 16 executors with 4 cores each). This is most likely due to the higher complexity of the implementation.
+   We found that this approach did not scale as well, and that we were only able to achieve 47 words per second locally and 289 words per second on AWS on the largest cluster we tested. This is most likely due to the higher complexity of the implementation.
 </p>
 <div style="text-align: center;">
 <img src='images/context-SPARK-3.jpg' alt='Context-Level Checking - Full SPARK Parallelization' width=75%>
