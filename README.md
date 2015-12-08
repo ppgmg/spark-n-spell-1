@@ -87,8 +87,11 @@ Note this will be fairly slow as the current version internally generates all po
 
 Consult our IPYTHON NOTEBOOKS for documentation on our coding and testing process.
 
-- For word-level correction:  *word_level_documentation.ipynb*  (requires the *img* sub-directory)
-- For context-level correction:  *context_level_documentation.ipynb*  (requires the *img* sub-directory)
+- For word-level correction:  *word_level_documentation.ipynb*
+  
+- For context-level correction:  *context_level_documentation.ipynb* 
+  
+  In order to view all related content and run the code, both files require the *img* , *sample* , and *testdata* sub-directories.
 
 ### OTHER DOCUMENTS IN THIS REPOSITORY
 
