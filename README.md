@@ -44,44 +44,29 @@ Note this will be fairly slow as the current version internally generates all po
 (a) Run our Python implementation of context-level document checking.
 
 - download *contextSerial.py* to your local directory
-  
 - if not already done, download the dictionary file *big.txt* from one of sources listed above
-  
 - download one of our sample test files from the *testdata* sub-folder, or prepare a .txt file of your own for checking
-  
 - at the prompt, run:  `python contextSerial.py`
-  
 - use the custom parameter -d to override the default dictionary (*big.txt*) and/or the custom parameter -c to override the default document for checking (*yelp100reviews.txt*)
-  
-  e.g.  `python contextSerial.py -d 'mycustomdictionary.txt' -c 'mycustomdocument.txt'`
+    - e.g.  `python contextSerial.py -d 'mycustomdictionary.txt' -c 'mycustomdocument.txt'`
 
 (b) Run our naive SPARK implementation of context-level checking.
 
 - download *contextSPARKnaive.py* to your local directory
-  
 - if not already done, download the dictionary file *big.txt* from one of sources listed above
-  
 - download one of our sample test files from the *testdata* sub-folder, or prepare a .txt file of your own for checking
-  
 - at the prompt, run:  `spark-submit contextSPARKnaive.py`
-  
 - use the custom parameter -d to override the default dictionary (*big.txt*) and/or the custom parameter -c to override the default document for checking (*yelp100reviews.txt*)
-  
-  e.g.  `spark-submit contextSPARKnaive.py -d 'mycustomdictionary.txt' -c 'mycustomdocument.txt'`
+    - e.g.  `spark-submit contextSPARKnaive.py -d 'mycustomdictionary.txt' -c 'mycustomdocument.txt'`
 
 (c) Run our full SPARK implementation of context-level checking.
 
 - download *contextSPARKfull.py* to your local directory
-  
 - if not already done, download the dictionary file *big.txt* from one of sources listed above
-  
 - download one of our sample test files from the *testdata* sub-folder, or prepare a .txt file of your own for checking
-  
 - at the prompt, run:  `spark-submit contextSPARKfull.py`
-  
 - use the custom parameter -d to override the default dictionary (*big.txt*) and/or the custom parameter -c to override the default document for checking (*yelp100reviews.txt*)
-  
-  e.g.  `spark-submit contextSPARKfull.py -d 'mycustomdictionary.txt' -c 'mycustomdocument.txt'`
+    - e.g.  `spark-submit contextSPARKfull.py -d 'mycustomdictionary.txt' -c 'mycustomdocument.txt'`
 
 ## DOCUMENTATION
 
@@ -111,25 +96,10 @@ This repository also includes the following, for reference (see iPython Notebook
 - *testdata* folder: (all files also available at s3n://spark-n-spell/)
   
   - *big.txt* (6.5MB): used to create the dictionary and probability tables, where appropriate (source: http://norvig.com/ngrams/)
-    
   - *test.txt* (106 bytes): variations of "this is a test"; used for early development and testing
-    
   - *yelp1review.txt* (1KB): 1 Yelp restaurant review (183 words)
-    
   - *yelp10reviews.txt* (8KB): 10 Yelp restaurant reviews (1,467 words)
-    
   - *yelp100reviews.txt* (65KB): 100 Yelp restaurant reviews (12,029 words)
-    
   - *yelp250reviews.txt* (173KB): 250 Yelp restaurant reviews (32,408 words)
-    
   - *yelp500reviews.txt* (354KB): 500 Yelp restaurant reviews (66,602 words)
-    
   - *yelp1000reviews.txt* (702KB): 1,000 Yelp restaurant reviews (131,340 words)
-    
-    ​
-    
-    ​
-    
-    ​
-    
-    ​
